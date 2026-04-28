@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebCapturer 多摄像头录制</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0f172a;
+        color: #e2e8f0;
+      }
+
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .controls {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+
+      button {
+        border: none;
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .start { background: #22c55e; color: #0b1020; }
+      .stop { background: #ef4444; color: #fff; }
+
+      .camera-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 16px;
+      }
+
+      .camera-card {
+        background: #1e293b;
+        padding: 12px;
+        border-radius: 12px;
+      }
+
+      video {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: 8px;
+        background: #000;
+      }
+
+      .status {
+        margin-top: 8px;
+        font-size: 14px;
+        color: #94a3b8;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>本地多摄像头录像</h1>
+      <div class="controls">
+        <label for="cameraCount">摄像头数量：</label>
+        <select id="cameraCount">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+        </select>
+        <button class="start" id="startBtn">开始预览并录制</button>
+        <button class="stop" id="stopBtn" disabled>停止录制并保存</button>
+      </div>
+      <div class="camera-grid" id="cameraGrid"></div>
+    </main>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
