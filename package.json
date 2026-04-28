@@ -7,8 +7,8 @@
     "build": "npm run clean && npm run build:main && npm run build:renderer && npm run copy:html",
     "build:main": "tsc -p tsconfig.main.json",
     "build:renderer": "tsc -p tsconfig.renderer.json",
-    "copy:html": "cp src/renderer/index.html dist/renderer/index.html",
-    "clean": "rm -rf dist",
+    "copy:html": "node -e \"const fs=require('node:fs'); fs.mkdirSync('dist/renderer',{recursive:true}); fs.copyFileSync('src/renderer/index.html','dist/renderer/index.html');\"",
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
     "start": "npm run build && electron .",
     "dev": "npm run build && electron ."
   },
