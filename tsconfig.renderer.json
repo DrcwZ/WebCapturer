@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist/renderer",
+    "rootDir": "src/renderer",
+    "lib": ["ES2022", "DOM"]
+  },
+  "include": ["src/renderer/**/*.ts"]
+}
