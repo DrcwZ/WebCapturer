@@ -1,3 +1,5 @@
+export {};
+
 type SaveResult = { ok: boolean; filePath?: string; message?: string };
 
 declare global {
